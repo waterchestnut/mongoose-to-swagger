@@ -1,6 +1,6 @@
 {
   "name": "mongoose-to-swagger-2",
-  "version": "1.5.4",
+  "version": "1.5.5",
   "description": "Conversion library for transforming Mongoose schema objects into Swagger schema definitions.",
   "homepage": "",
   "author": {
@@ -21,7 +21,7 @@
     "@types/chai": "4.2.4",
     "@types/mocha": "8.2.2",
     "@types/mongoose": "5.10.4",
-    "@types/node": "14.14.37",
+    "@types/node": "24.10.15",
     "@typescript-eslint/parser": "2.6.0",
     "chai": "4.2.0",
     "eslint": "6.6.0",
@@ -30,11 +30,11 @@
     "eslint-plugin-chai-friendly": "0.5.0",
     "eslint-plugin-typescript": "0.14.0",
     "mocha": "9.2.2",
-    "mongoose": "6.0.10",
+    "mongoose": "8.23.0",
     "nyc": "14.1.1",
     "source-map-support": "0.5.16",
     "ts-node": "8.4.1",
-    "typescript": "4.2.3"
+    "typescript": "5.3.3"
   },
   "repository": "waterchestnut/mongoose-to-swagger",
   "scripts": {
@@ -52,5 +52,6 @@
   "license": "MIT",
   "files": [
     "dist"
-  ]
+  ],
+  "packageManager": "pnpm@10.11.0+sha512.6540583f41cc5f628eb3d9773ecee802f4f9ef9923cc45b69890fb47991d4b092964694ec3a4f738a420c918a333062c8b925d312f42e4f0c263eb603551f977"
 }

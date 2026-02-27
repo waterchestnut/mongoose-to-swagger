@@ -3,7 +3,7 @@ import { ObjectId } from 'bson';
 
 const isString = value => typeof value === 'string';
 
-const mapMongooseTypeToSwaggerType = (type): 'string' | 'number' | 'boolean' | 'array' | 'object' | 'map' | null => {
+const mapMongooseTypeToSwaggerType = (type): 'string' | 'number' | 'boolean' | 'array' | 'object' | 'map' | 'union' | null => {
   if (!type) {
     return null;
   }
@@ -167,6 +167,8 @@ const mapSchemaTypeToFieldSchema = ({
     meta.type = 'object';
     // with `additionalProperties` instead of `properties`
     meta.additionalProperties = subSchema;
+  } else if (swaggerType === 'union') {
+    meta.type = value.of.map(t => mapMongooseTypeToSwaggerType(t));
   }
 
   const result = {
