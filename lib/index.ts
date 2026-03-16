@@ -172,7 +172,7 @@ const mapSchemaTypeToFieldSchema = ({
   }
 
   if (value.oneOf?.length) {
-    meta.oneOf = value.oneOf.map(t => getFieldsFromMongooseSchema(t, { props, omitFields }));
+    meta.oneOf = value.oneOf.map(t => mapSchemaTypeToFieldSchema({ value: t, props, omitFields }));
   }
 
   const result = {
