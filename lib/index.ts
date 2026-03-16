@@ -154,13 +154,23 @@ const mapSchemaTypeToFieldSchema = ({
     }
 
     const properties = {};
+    const required: string[] = [];
 
     for (const field of fields.filter(f => f.type != null)) {
       properties[field.field as any] = field;
+      if (field.required && field.field != null) {
+        required.push(field.field);
+        delete field.required;
+      }
       delete field.field;
     }
 
     meta.properties = properties;
+    if (!required.length) {
+      delete meta.required;
+    } else {
+      meta.required = required;
+    }
   } else if (swaggerType === 'map') {
     const subSchema = mapSchemaTypeToFieldSchema({ value: value.of || {}, props, omitFields });
     // swagger defines map as an `object` type
