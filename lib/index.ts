@@ -171,6 +171,10 @@ const mapSchemaTypeToFieldSchema = ({
     meta.type = value.of.map(t => mapMongooseTypeToSwaggerType(t));
   }
 
+  if (value.oneOf?.length) {
+    meta.oneOf = value.oneOf.map(t => mapSchemaTypeToFieldSchema({ value: t, props, omitFields }));
+  }
+
   const result = {
     type: swaggerType,
     ...meta,
